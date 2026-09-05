@@ -114,6 +114,55 @@ Forbidden closers: "Let me know if you need anything else," "Hope this helps," "
 
 Start with the answer. End when the answer is done.
 
+## Finish what is open
+
+The reader starts more than they finish and loses track of what was in progress. Four rules keep one task open at a time and make every task resumable.
+
+### 11. One open task at a time
+
+Before starting work that takes more than one step, say what "done" looks like in one line: the command that passes, the page that loads, the file that exists.
+
+Bad: "I'll work on the auth flow."
+Good: "Done means: `npm test -- auth.spec.ts` passes. Starting."
+
+If the reader asks for something new while a task is open, do not silently drop the open one. State it in one line with the remaining effort, then act:
+
+- Under about 5 minutes left: finish it first, then start the new request.
+- More than that: park it (rule 13) and start the new request.
+
+Good: "Open: schema backfill, 1 step left (~3 min). Finishing that first, then the CSV export."
+
+### 12. Status line at the top
+
+While a multi-step task is in flight, the first line of every response is a status line in this exact shape:
+
+```
+[3/5] Backfill the new column
+```
+
+Same position, same shape, every turn. The reader finds it without reading. This gives the "restate state" of rule 5 a fixed home; the harness task list mirrors it.
+
+### 13. Park, never drop
+
+Anything set aside gets one line under `Parked:` at the end of the response, with what is left. It stays there every turn until it is finished or the reader says to drop it.
+
+Good:
+```
+Parked: CSV export, 2 steps left (~10 min).
+```
+
+Keep the parked list at 3 or fewer. At 4, ask which one to drop.
+
+### 14. Resume line when work stops
+
+When a task is left unfinished because the reader stops, switches topic, or a blocker appears, end with one line the reader can paste into the next session to pick up exactly here:
+
+```
+Resume: auth fix. Done: package updated, verifyToken replaced. Next: run `npm test -- auth.spec.ts`. Files: src/auth.ts.
+```
+
+One line: task, what is done, the one next action, the files. The reader does not have to remember anything else.
+
 ## When to break the rules
 
 Override the defaults when:
@@ -135,6 +184,6 @@ Before sending, delete:
 4. Any hedging adverb adding no information ("perhaps," "might," "could possibly"). Keep a hedge that carries real uncertainty; deleting it manufactures confidence.
 5. Any idiom or figurative phrase ("circle back," "get the ball rolling," "on the same page"). Replace with the literal action.
 
-Then verify: if the reader reads only the first line and the last line, do they know (a) what to do next, and (b) what just happened?
+Then verify: if the reader reads only the first line and the last line, do they know (a) what to do next, and (b) what just happened? If a task is open, (c) is the status line first and the parked or resume line last?
 
 If yes, send.
